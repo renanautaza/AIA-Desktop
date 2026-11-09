@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Build outputs
+build/
+dist/
+*.spec.bak
+
+# Runtime and generated files
+*.log
+*.json
+*.csv
+*.xlsx
+*.xls
+*.pdf
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+secrets/
+
+# Windows
+Thumbs.db
+Desktop.ini
