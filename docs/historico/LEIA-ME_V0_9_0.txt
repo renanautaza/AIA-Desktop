@@ -1,0 +1,56 @@
+AUTAZA INSPECTION ANALYTICS — V0.9.0
+EXPECTATIVA + TOOLTIP TÉCNICO
+
+NOVIDADES
+=========
+1. MODO EXPECTATIVA / CRITÉRIO DE ENTREGA
+   - Define o norte da calibração antes/durante os testes.
+   - Accuracy, Precision, Recall e F1 usam meta mínima (>=).
+   - FP/100 e FN/100 usam limite máximo (<=).
+   - Campo vazio significa que o indicador não está sendo monitorado.
+   - Status: META ATINGIDA, EM CALIBRAÇÃO ou FORA DA EXPECTATIVA.
+   - Registra origem, responsável, data e observações do critério.
+
+2. DASHBOARD
+   - Mostra um resumo da meta ativa quando houver critérios configurados.
+   - O botão ABRIR EXPECTATIVA leva diretamente ao módulo de metas.
+
+3. TOOLTIP TÉCNICO
+   - Passe o mouse sobre as principais métricas.
+   - O AIA mostra nome, fórmula e interpretação.
+   - Inclui classificação e indicadores de detecção.
+
+4. COMPARAÇÃO / EVOLUÇÃO
+   - Mantém a comparação de até 50 coletas.
+   - A tela informa o atendimento às metas nas coletas selecionadas.
+   - O threshold continua sendo uma condição experimental; a meta é o critério de aceitação.
+
+5. EXPORTAÇÃO
+   - O JSON preserva as metas da sessão.
+   - O Excel recebe a aba EXPECTATIVA.
+   - O CSV inclui o bloco EXPECTATIVA / CRITÉRIO DE ENTREGA.
+
+REGRAS IMPORTANTES
+==================
+- A meta não é uma nota proprietária do AIA.
+- A meta deve representar um critério previamente definido pela Autaza/cliente.
+- O AIA mostra se o resultado atende ao critério; a engenharia continua responsável por risco, causa raiz e decisão final.
+- FP/FN de classificação são diferentes de FP/FN de detecção.
+- FP-D/FN-D continuam sendo estimativas por contagem quando não existe correspondência individual.
+
+COMO USAR
+==========
+1. Abra EXPECTATIVA / META.
+2. Cadastre as metas acordadas.
+3. Registre a origem do critério.
+4. Execute as coletas normalmente.
+5. Observe o status no módulo EXPECTATIVA e no Dashboard.
+6. Use COMPARA para avaliar diferentes thresholds/configurações.
+7. Considere a configuração atendida como candidata à validação, não como aprovação automática.
+
+Dependências:
+- Python 3.x
+- openpyxl para Excel
+
+Execução recomendada:
+- Execute Autaza_Inspection_Analytics.bat

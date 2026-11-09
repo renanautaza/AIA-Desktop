@@ -1,0 +1,56 @@
+AUTAZA INSPECTION ANALYTICS — V0.9.1
+IMPORTAÇÃO INTELIGENTE + EXPECTATIVA + COMPARAÇÃO
+
+NOVA EVOLUÇÃO — IMPORTAÇÃO INTELIGENTE
+
+Ao abrir um arquivo Excel pelo botão "ABRIR EXCEL", o AIA agora tenta identificar automaticamente o contexto da inspeção:
+
+- Cliente
+- Local / Planta
+- Projeto
+- Linha / Estação
+- Técnico / Operador / Responsável
+- Data da inspeção
+- Threshold / Confidence / Grau de Confiança
+- Método de referência / Gabarito
+
+A identificação aceita diferentes nomes de coluna e variações de idioma/nomenclatura. O sistema procura primeiro informações na própria tabela de inspeções e depois procura campos rotulados em abas de resumo/formulário.
+
+REGRA DE RASTREABILIDADE
+
+O AIA não inventa informações. Quando um campo não é encontrado, ele permanece disponível para preenchimento manual. A data atual do computador não é usada como substituta de uma data histórica ausente.
+
+Para a data, a prioridade é:
+1. Data existente nas linhas da tabela de inspeções.
+2. Campo de data identificado em outra área do workbook.
+3. Data explícita no nome do arquivo, quando estiver em formato reconhecível.
+4. N/D para revisão manual.
+
+Após a importação, uma mensagem informa quantos dos 8 campos de contexto foram identificados automaticamente e quais precisam ser revisados.
+
+A tela COLETA / OPERAÇÃO também apresenta o indicador:
+"Metadados preenchidos automaticamente pelo Excel".
+
+IMPORTANTE
+
+A importação dos metadados é complementar à importação dos resultados. Os valores históricos de TP, VN/TN, FP e FN continuam preservados como histórico e não são convertidos automaticamente em gabarito do motor novo.
+
+EXPECTATIVA / CRITÉRIO DE ENTREGA
+
+Define as metas combinadas com o cliente para orientar a calibração. Accuracy, Precision, Recall e F1 são tratados como metas mínimas; FP/100 e FN/100 como limites máximos.
+
+COMPARAÇÃO / EVOLUÇÃO
+
+Permite comparar de 2 a 50 coletas arquivadas/atuais, incluindo threshold, data, origem e métricas. Isso permite avaliar o efeito de alterações de configuração e processo.
+
+TOOLTIPS
+
+As principais métricas possuem explicações técnicas e fórmulas ao passar o mouse, além do Glossário.
+
+EXPORTAÇÃO
+
+Excel e CSV incluem os metadados de identificação do teste, a origem do arquivo e os indicadores de desempenho.
+
+RECOMENDAÇÃO DE USO
+
+Depois de importar um Excel histórico, revise rapidamente os campos Cliente, Planta, Projeto, Linha, Técnico, Data, Threshold e Método de referência antes de salvar ou exportar. Em planilhas com múltiplas coletas, confirme especialmente a data e o threshold.

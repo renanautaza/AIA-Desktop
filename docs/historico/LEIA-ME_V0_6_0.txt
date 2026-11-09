@@ -1,0 +1,39 @@
+AUTAZA INSPECTION ANALYTICS — V0.6.0
+Futuristic Autaza Cockpit UI
+
+BASE FUNCIONAL
+- Mantém o núcleo funcional da V0.5.0.
+- Importação de Excel histórico.
+- Entrada manual e Coleta Rápida.
+- Coleta detalhada opcional por inspeção.
+- TP/TN/FP/FN e métricas estatísticas.
+- Auditoria histórico × motor novo.
+- Análise Técnica.
+- Engenharia.
+- Análise por defeito.
+- Exportação Excel e CSV.
+- Salvamento de projeto JSON.
+
+NOVA EXPERIÊNCIA VISUAL
+- Dashboard em linguagem de cockpit industrial.
+- KPIs em faixa superior.
+- Matriz visual TP/TN/FP/FN.
+- Painéis técnicos com bordas e trilhas de sinal.
+- Status do teste e ações rápidas.
+- Navegação separada por Operação, Análise e Gestão.
+- Identidade AUTAZA INSPECTION ANALYTICS no produto.
+
+NOVA INSPEÇÃO
+- "Nova Inspeção" agora representa um NOVO CICLO.
+- O novo ciclo começa com zero linhas de inspeção.
+- Não é criado um registro fantasma/placeholder.
+- Coleta Rápida pode ser iniciada diretamente desse fluxo.
+
+INSTALAÇÃO
+1. Mantenha todos os arquivos desta pasta juntos.
+2. Execute Autaza_Inspection_Analytics.bat.
+3. Dependência:
+   py -3 -m pip install openpyxl
+
+OBSERVAÇÃO
+A V0.6.0 prioriza uma nova linguagem visual sem remover o núcleo funcional existente.

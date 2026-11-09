@@ -1,0 +1,10 @@
+AUTAZA INSPECTION ANALYTICS — V0.6.2
+
+Esta versão corrige a identificação/execução: o código, o launcher e o
+atalho passam a identificar explicitamente V0.6.2.
+
+TESTE:
+1. Extraia em uma pasta nova.
+2. Execute Autaza_Inspection_Analytics.bat dessa pasta.
+3. Não use o atalho antigo da V0.5.0.
+4. Para criar um novo atalho, execute CRIAR_ATALHO_NA_AREA_DE_TRABALHO.bat.

@@ -1,0 +1,51 @@
+AUTAZA INSPECTION ANALYTICS — V0.8.1
+
+EVOLUÇÃO: CLASSIFICAÇÃO × DETECÇÃO
+
+Esta versão mantém as funcionalidades validadas da V0.8.0 e acrescenta uma separação explícita entre dois níveis de análise:
+
+1. CLASSIFICAÇÃO DA INSPEÇÃO
+   - TP-C: defeito real + Vision AI = NOK.
+   - VN-C: caso OK + Vision AI = OK.
+   - FP-C: caso OK + Vision AI = NOK.
+   - FN-C: defeito real + Vision AI = OK.
+   - Essas métricas representam a matriz OK/NOK da carroceria, peça ou inspeção.
+
+2. DETECÇÃO DE OCORRÊNCIAS
+   - TP-D: correspondências estimadas por quantidade = min(Real, Detectado).
+   - FP-D: detecções extras = max(Detectado - Real, 0).
+   - FN-D: defeitos não detectados = max(Real - Detectado, 0).
+   - Precision e Recall de detecção também são exibidos.
+
+IMPORTANTE SOBRE A METODOLOGIA
+Quando não existe uma correspondência individual/espacial entre cada defeito real e cada detecção, a V0.8.1 usa uma estimativa por contagem. Portanto, TP-D/FP-D/FN-D NÃO significam que o software identificou espacialmente cada defeito. Para correspondência individual, será necessária uma evolução futura com regra de matching por identidade, posição ou ROI.
+
+NA TELA COLETA
+A tabela passa a mostrar:
+   TP-C / VN-C / FP-C / FN-C = classificação
+   TP-D / FP-D / FN-D = detecção
+
+EXEMPLO
+Real = 4
+Detectado = 8
+Classificação: pode ser TP-C = 1 se a inspeção real NOK foi classificada como NOK.
+Detecção por contagem: TP-D = 4, FP-D = 4, FN-D = 0.
+
+No exemplo da campanha com três inspeções NOK:
+   Real total = 7
+   Detectado total = 16
+   TP-D = 7
+   FP-D = 9
+   FN-D = 0
+   Precision de detecção = 43,75%
+   Recall de detecção = 100%
+
+EXPORTAÇÕES
+Excel e CSV passam a separar explicitamente as colunas de classificação (C) e detecção (D).
+
+COMPARAÇÃO MULTICOLETA
+A comparação de 2 a 50 coletas passa a mostrar FP-C/FN-C e FP-D/FN-D separadamente e inclui gráficos de FP-D e FN-D.
+
+VERSÃO
+V0.8.1 — Autaza Inspection Analytics
+Industrial Control Room

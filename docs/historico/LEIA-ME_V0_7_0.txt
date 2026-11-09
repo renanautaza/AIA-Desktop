@@ -1,0 +1,15 @@
+AUTAZA INSPECTION ANALYTICS — V0.7.0
+INDUSTRIAL CONTROL ROOM
+
+Esta versão traz uma mudança REAL de Front-end, não apenas de versão:
+- dock vertical compacto para navegação;
+- barra superior de comando;
+- indicador visual de sistema online;
+- faixa de instrumentação AIA em cada módulo;
+- hierarquia visual inspirada em salas de controle industriais;
+- mesmas funcionalidades e cálculos da V0.6.2.
+
+IMPORTANTE:
+Execute Autaza_Inspection_Analytics.bat desta pasta.
+Não use atalhos antigos das versões V0.5/V0.6.
+Para criar um novo atalho, execute CRIAR_ATALHO_NA_AREA_DE_TRABALHO.bat.

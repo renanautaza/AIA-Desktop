@@ -1,0 +1,21 @@
+AUTAZA INSPECTION ANALYTICS — V0.7.1
+INDUSTRIAL CONTROL ROOM
+
+MUDANÇAS
+1) "SISTEMA ONLINE" foi substituído por "SISTEMA ATIVO".
+   O indicador não representa conexão com servidor/internet.
+   Ele informa apenas que a aplicação está aberta e o módulo está pronto.
+2) Área de conteúdo agora possui barra de rolagem vertical.
+   Textos e cards inferiores não ficam cortados em telas menores.
+3) Novo ícone próprio do AIA.
+   Mantém a linguagem visual Autaza (azul/ciano + A estilizado),
+   mas possui identidade própria do software.
+4) Novo criador de atalho em VBScript.
+   Isso evita dependência de política de execução do PowerShell.
+
+EXECUÇÃO
+- Abra Autaza_Inspection_Analytics.bat
+- Para criar o atalho, execute:
+  CRIAR_ATALHO_NA_AREA_DE_TRABALHO.bat
+- O atalho criado usa AIA_Inspection_Analytics.ico.
+- Não use atalhos antigos das versões anteriores.

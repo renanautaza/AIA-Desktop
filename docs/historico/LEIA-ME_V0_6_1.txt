@@ -1,0 +1,23 @@
+AUTAZA INSPECTION ANALYTICS — V0.6.1
+INDUSTRIAL CONTROL ROOM UI
+
+Esta versão corrige o problema visual da V0.6.0: o Front-end foi realmente
+substituído por uma composição nova, e não apenas por uma troca de cores.
+
+NOVO FRONT-END
+- Command Deck superior.
+- Rail lateral ultracompacto.
+- Área central de trabalho.
+- Painel contextual lateral direito.
+- Telemetria inferior.
+- Cabeçalhos editoriais e módulos de instrumentação.
+- Linguagem de "sala de controle industrial", evitando o padrão de dashboard
+  genérico de IA.
+
+FUNCIONALIDADES
+O núcleo da V0.6.0 é preservado: Excel, CSV, projetos, coleta rápida,
+auditoria, análise técnica, engenharia, por defeito e métricas.
+
+TESTE
+Execute Autaza_Inspection_Analytics.bat.
+Não substitua a versão anterior até validar a interface e as funções.

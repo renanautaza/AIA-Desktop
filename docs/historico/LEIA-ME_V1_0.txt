@@ -1,0 +1,28 @@
+AUTAZA INSPECTION ANALYTICS - V1.1.6
+
+Como abrir
+1. Mantenha o arquivo "Autaza Inspection Analytics.exe" junto da pasta "_internal".
+2. Dê dois cliques no executável ou execute "CRIAR_ATALHO_NA_AREA_DE_TRABALHO.bat" uma vez.
+3. Não é necessário instalar ou abrir Python.
+
+Novidades V1.1.6
+- Comparação redesenhada: painel único e legível de Accuracy, Precision, Recall e F1,
+  cartões de variação e gráfico de carga de FP/FN por coleta.
+- Auditoria redesenhada: mapa de conciliação histórico × motor novo, divergência
+  absoluta, ponto prioritário de revisão e rastro de diferenças com sinalização.
+- A separação entre metodologia histórica e cálculo estruturado permanece explícita.
+
+Recursos anteriores
+- Projeto de Calibração com código, objetivo e responsável.
+- Histórico rastreável de coletas, com data/hora, origem e hash do snapshot.
+- Recomendação da melhor configuração: metas, F1, Recall e menor FP.
+- Gráfico Threshold x Performance.
+- Relatório executivo em PDF.
+
+Recursos preservados
+- Importação Inteligente de Excel; Modo Expectativa; comparação de 2 a 50 coletas;
+  tooltips e fórmulas; coleta rápida/detalhada; auditoria; análise técnica;
+  engenharia; análise por defeito; exportações Excel, CSV e JSON.
+
+Manual
+Consulte "Manual_Autaza_Inspection_Analytics_V1_0.pdf" para o fluxo completo.

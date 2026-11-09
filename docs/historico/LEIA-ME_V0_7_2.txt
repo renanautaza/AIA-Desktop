@@ -1,0 +1,17 @@
+AUTAZA INSPECTION ANALYTICS — V0.7.2
+INDUSTRIAL CONTROL ROOM
+
+MELHORIA — NOVA COLETA DO ZERO
+1) A tela COLETA / OPERAÇÃO agora possui o botão "↻ Nova coleta".
+2) "Nova inspeção" continua adicionando uma inspeção ao conjunto atual.
+3) "Nova coleta" encerra apenas o conjunto de dados em memória e prepara o AIA para um novo cliente/planta/projeto.
+4) A nova coleta começa realmente vazia: nenhuma inspeção é criada automaticamente.
+5) Cliente, planta, projeto, linha, técnico, threshold e demais informações são limpos; a data volta para a data atual e a referência para "Não determinado".
+6) O sistema pede confirmação antes de limpar os dados. Arquivos já salvos no computador não são apagados.
+
+FLUXO RECOMENDADO
+- Termine a coleta atual.
+- Salve/exporte o projeto se precisar manter os dados.
+- Clique em "↻ Nova coleta".
+- Confirme.
+- Preencha a nova identificação e use "+ Nova inspeção" ou "⚡ Coleta rápida".

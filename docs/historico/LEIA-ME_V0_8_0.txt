@@ -1,0 +1,25 @@
+AUTAZA INSPECTION ANALYTICS — V0.8.0
+
+NOVA FUNÇÃO: COMPARAÇÃO MULTICOLETA
+
+- Nova aba COMPARAÇÃO / EVOLUÇÃO.
+- Suporta seleção de 2 a 50 coletas na sessão.
+- As coletas anteriores são preservadas automaticamente quando o usuário inicia uma NOVA COLETA ou importa uma nova planilha.
+- A coleta atual também aparece na lista e pode ser comparada antes de ser encerrada.
+- Tabela comparativa com N, TP, TN/VN, FP, FN, Accuracy, Precision, Recall e F1.
+- Variação entre a primeira e a última coleta selecionada, com pontos percentuais para métricas percentuais.
+- Gráficos de evolução de Recall, Precision, F1 e Falsos Positivos.
+- Leitura comparativa sem criar score proprietário ou decisão automática.
+- O campo N foi incluído no Glossário.
+- Projeto JSON passa a preservar o histórico de coletas comparativas.
+
+USO RECOMENDADO
+1. Realize uma coleta.
+2. Preencha o Threshold e demais condições do teste.
+3. Clique em NOVA COLETA para encerrar o conjunto atual e iniciar outro. O AIA arquiva automaticamente a coleta anterior.
+4. Repita para os diferentes thresholds/configurações.
+5. Abra COMPARAÇÃO.
+6. Selecione as coletas desejadas e clique em COMPARAR SELECIONADAS.
+
+OBSERVAÇÃO
+A comparação é feita com os dados registrados em cada coleta. Diferenças de cliente, planta, amostra, método de referência ou condições de aquisição devem ser consideradas na interpretação técnica.
