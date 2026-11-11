@@ -68,11 +68,23 @@ row_operador=mod.normalize_row({"id":"OP","real":tp_d+fn_d,"det":tp_d+fp_d,"corr
 got=mod._aia_v130_detection_for_row(dummy3,row_operador)
 ok("Entrada TP FP FN preserva D-O", (got["real"],got["det"],got["tp"],got["fp"],got["fn"])==(2,3,1,2,1), str(got))
 
+# Excel histórico com matriz D-O explícita, porém sem Correspondentes, deve
+# preservar TP/FP/FN e não ser tratado como estimativa.
+row_excel=mod.normalize_row({"id":"XLSX1","real":2,"det":3,"tp_d":1,"fp_d":2,"fn_d":1,"detection_explicit_matrix":True,"detection_observed":True})
+excel_source=SimpleNamespace(rows=[row_excel])
+excel_do=mod._aia_v130_detection_occurrence(excel_source)
+ok("Excel TP-D/FP-D/FN-D explícito preservado", row_excel["correspondentes"]==1 and (excel_do["tp"],excel_do["fp"],excel_do["fn"],excel_do["status"])==(1,2,1,"EXPLÍCITO") and excel_do["explicit_matrix_rows"]==1, str(excel_do))
+
 # Projeto JSON: campos novos e projetos antigos devem ser aceitos.
 payload=mod.aia_v130_validate_project_payload({"version":"1.3.0 RC","metadata":{"projeto":"Teste"},"rows":[{"id":"J1","real":5,"det":7,"correspondentes":3,"detection_observed":True}],"class_thresholds":{"Risco":{"threshold":"0.82","confidence":"82"}},"history":[],"comparison_archive":[],"calibration_history":[]})
 ok("Projeto JSON V1.3 restaurável", payload["rows"][0]["correspondentes"]==3 and payload["class_thresholds"]["RISCO"]["threshold"]=="0.82", str(payload))
 legacy=mod.aia_v130_validate_project_payload({"metadata":{},"rows":[{"id":"L1","real":1,"det":1}],"history":[],"comparison_archive":[],"calibration_history":[]})
 ok("Projeto JSON legado compatível", legacy["rows"][0]["id"]=="L1" and legacy["class_thresholds"]=={}, str(legacy))
+
+# Catálogo global: tipos são rastreáveis, não mudam D-O e Poro vira Porosidade.
+catalog=mod.aia_v130_sorted_catalog(["Poro", "Risco", "Tipo especial"])
+row_catalog=mod.normalize_row({"id":"CAT1","real":1,"det":1,"defect_types":["Poro", "Risco", "Poro"]})
+ok("Catálogo global normaliza Poro", "Porosidade" in catalog and row_catalog["defect_types"]==["Porosidade","Risco"], str(row_catalog))
 
 # CSV da própria aplicação deve voltar por ABRIR EXCEL/CSV com metadados e D-O.
 class Var:
@@ -82,7 +94,7 @@ class Var:
 class Status:
     def set(self, _value): pass
 meta_keys=("cliente","local","projeto","linha","tecnico","data","threshold","gabarito")
-csv_source=SimpleNamespace(rows=[mod.normalize_row({"id":"CSV1","vision":"NOK","ref":"Defeito confirmado","real":2,"det":3,"correspondentes":1,"detection_observed":True,"obs":"teste CSV"})],class_thresholds={"TRINCA":{"threshold":"80","confidence":"","notes":""}},meta={k:Var("Projeto CSV" if k=="projeto" else "") for k in meta_keys},status=Status())
+csv_source=SimpleNamespace(rows=[mod.normalize_row({"id":"CSV1","vision":"NOK","ref":"Defeito confirmado","real":2,"det":3,"correspondentes":1,"detection_observed":True,"obs":"teste CSV","defect_types":["Risco","Porosidade"]})],class_thresholds={"TRINCA":{"threshold":"80","confidence":"","notes":""}},meta={k:Var("Projeto CSV" if k=="projeto" else "") for k in meta_keys},status=Status())
 csv_source.detection_for_row=MethodType(mod._aia_v130_detection_for_row,csv_source)
 with tempfile.TemporaryDirectory() as temp_dir:
     csv_path=Path(temp_dir)/"aia.csv"
@@ -95,7 +107,7 @@ with tempfile.TemporaryDirectory() as temp_dir:
     mod.messagebox.showinfo=lambda *args,**kwargs:None; mod.messagebox.showerror=lambda *args,**kwargs:None
     try: mod._aia_v130_import_csv(csv_target,str(csv_path))
     finally: mod.messagebox.showinfo=old_info; mod.messagebox.showerror=old_error
-    ok("CSV AIA reabre com dados", len(csv_target.rows)==1 and csv_target.rows[0]["id"]=="CSV1" and csv_target.rows[0]["correspondentes"]==1 and csv_target.meta["projeto"].get()=="Projeto CSV", str(csv_target.rows))
+    ok("CSV AIA reabre com dados", len(csv_target.rows)==1 and csv_target.rows[0]["id"]=="CSV1" and csv_target.rows[0]["correspondentes"]==1 and csv_target.rows[0]["defect_types"]==["Risco","Porosidade"] and csv_target.meta["projeto"].get()=="Projeto CSV", str(csv_target.rows))
 
 # PDF deve ser produzido com a tabela de registros em página paisagem.
 pdf_source=SimpleNamespace(rows=csv_source.rows,class_thresholds=csv_source.class_thresholds,status=Status())
